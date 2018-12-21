@@ -1,61 +1,90 @@
 <li>
     <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
-</li>
-<li>
-    <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
 </li> 
- 
- <li>
-    <a href="#"><i class="fa fa-sitemap"></i> Charts<span class="fa arrow"></span></a>
+<li>
+    <a href="#"><i class="fa fa-line-chart"></i> Accounting<span class="fa arrow"></span></a>
     <ul class="nav nav-second-level">
-        <li>
-            <a href="chart.html">Charts JS</a>
-        </li>
-        <li>
-            <a href="morris-chart.html">Morris Chart</a>
-        </li>
-		</ul>
-	</li>	
-		
-<li>
-    <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-</li>
-
-<li>
-    <a href="table.html"><i class="fa fa-table"></i> Responsive Tables</a>
-</li>
-<li>
-    <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
-</li>
-
-
-<li>
-    <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-    <ul class="nav nav-second-level">
-        <li>
-            <a href="#">Second Level Link</a>
-        </li>
-        <li>
-            <a href="#">Second Level Link</a>
-        </li>
-        <li>
-            <a href="#">Second Level Link<span class="fa arrow"></span></a>
+        <li><a href="#">Masters<span class="fa arrow"></span></a>
             <ul class="nav nav-third-level">
                 <li>
-                    <a href="#">Third Level Link</a>
+                    <a href="chart.html">Accounting Heads</a>
                 </li>
                 <li>
-                    <a href="#">Third Level Link</a>
+                    <a href="morris-chart.html">Ledgers</a>
                 </li>
                 <li>
-                    <a href="#">Third Level Link</a>
+                    <a href="morris-chart.html">Members</a>
                 </li>
-
             </ul>
-
+        </li>	 
+        <li>
+            <a href="#"> Vouchers <span class="fa arrow"></a>
+            <ul class="nav nav-third-level">
+            <li>
+                    <a href="chart.html">Payment Voucher</a>
+                </li>
+                <li>
+                    <a href="morris-chart.html">Receipt Voucher</a>
+                </li>
+                <li>
+                    <a href="morris-chart.html">Journal Voucher</a>
+                </li>
+                <li>
+                    <a href="morris-chart.html">Contra Voucher</a>
+                </li>
+                </ul>
+        </li>  
+        <li>
+            <a href="empty.html"> Reports<span class="fa arrow"></a>
+            <ul class="nav nav-third-level">
+            <li>
+                    <a href="chart.html">Payment and Receipt</a>
+                </li>
+                <li>
+                    <a href="morris-chart.html">Daily Cash Trail</a>
+                </li>
+                <li>
+                    <a href="morris-chart.html">Ledger Book</a>
+                </li>
+                <li>
+                    <a href="morris-chart.html">Cash Book</a>
+                </li>
+                <li>
+                    <a href="morris-chart.html">Income and Expenditure</a>
+                </li>
+                <li>
+            <a href="chart.html">Payment and Receipt</a>
+        </li>
+        <li>
+            <a href="morris-chart.html">Daily Cash Trail</a>
+        </li>
+        <li>
+            <a href="morris-chart.html">Ledger Book</a>
+        </li>
+        <li>
+            <a href="morris-chart.html">Cash Book</a>
+        </li>
+                </ul>
         </li>
     </ul>
-</li>
+</li> 
 <li>
-    <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+    <a href="empty.html"><i class="fa fa-dollar"></i> Loan Management System<span class="fa arrow"></a>
+    <ul class="nav nav-second-level">
+    <li>
+            <a href="chart.html">Payment and Receipt</a>
+        </li>
+        <li>
+            <a href="morris-chart.html">Daily Cash Trail</a>
+        </li>
+        <li>
+            <a href="morris-chart.html">Ledger Book</a>
+        </li>
+        <li>
+            <a href="morris-chart.html">Cash Book</a>
+        </li>
+        <li>
+            <a href="morris-chart.html">Income and Expenditure</a>
+        </li>
+		</ul>
 </li>

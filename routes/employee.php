@@ -10,3 +10,14 @@ Route::get('/home', function () {
     return view('employee.home');
 })->name('home');
 
+
+// Saradar Master========================================================
+Route::group(['prefix'=>'master'], function() {
+    Route::group(['prefix'=>'accounthead'], function() {
+        Route::get('/', [
+            'as' => 'accounthead.index',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\AccountGroupsController@index'
+        ]);         
+    });
+}); 

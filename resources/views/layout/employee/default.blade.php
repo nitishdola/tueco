@@ -19,6 +19,7 @@ Author: Nitish Dolakasharia
     <link href="{{ asset('assets/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="{{ asset('assets/css/custom-styles.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{ asset('assets/js/Lightweight-Chart/cssCharts.css') }}"> 
@@ -35,7 +36,7 @@ Author: Nitish Dolakasharia
             </ul>
         </nav>
         <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side flexcroll" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     @include('layout.admin.common.navbar_side')

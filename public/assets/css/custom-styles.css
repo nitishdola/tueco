@@ -80,8 +80,8 @@ position: fixed;
   z-index: 1;
   position: fixed;
   width: 260px;
-  top: 80px;
-}
+  top: 80px; 
+} 
 #page-wrapper {
   position: relative;
   top: 55px;
@@ -539,9 +539,12 @@ padding-top: 4px;
 ul.nav.nav-second-level.collapse.in {background: #131212;}
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
-	 outline:0;
-	 background: #575757;
-	 color: #F36A5A;
+	 
+outline:0;
+	 
+background: #575757;
+	 
+color: #F36A5A;
 }
  
 .navbar-side {

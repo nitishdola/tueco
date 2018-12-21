@@ -68,16 +68,16 @@ Author: Nitish Dolakasharia
                 @if(Session::has('message'))
                 <div class="row">
                     <div class="col-lg-12">
-                       <div class="alert {{ Session::get('alert-class', 'alert-info') }}">
+                       <div class="alert {{ Session::get('alert') }}">
                              <button type="button" class="close" data-dismiss="alert">×</button>
-                             {!! Session::get('message') !!}
+                             <b>{!! Session::get('type') !!}</b> {!! Session::get('message') !!}
                        </div>
                     </div>
                 </div>
                 @endif
             
                 @yield('main_content')
-				<footer>
+				<footer  class="sticky-footer">
                     <p>All right reserved.</p>
 				</footer>
             </div>

@@ -66,7 +66,7 @@ Author: Nitish Dolakasharia
                 @endif
             
                 @yield('main_content')
-				<footer>
+				<footer class="sticky-footer">
                     <p>All right reserved.</p>
 				</footer>
             </div>

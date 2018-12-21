@@ -3,6 +3,9 @@
     max-height: calc(100vh - 9rem) !important;
         overflow-y: auto !important;
   } 
+  .nav > li > a > i {
+    margin-right: 0px !important; 
+  }
 .flexcroll{
     scrollbar-face-color: #367CD2;
     scrollbar-shadow-color: #FFFFFF;

@@ -33,7 +33,6 @@
 </div>
 <script>     
         function validateForm(){
-            debugger; 
             var textbox1 = document.getElementById("name").value;
             var textbox2 = document.getElementById('group_code').value;
             var textbox3 = document.getElementById('head_id').value;;

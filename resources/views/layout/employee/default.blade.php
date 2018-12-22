@@ -8,9 +8,10 @@ Author: Nitish Dolakasharia
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta id="csrf-token" name="csrf-token" content="{{ csrf_token() }}" />
 	<meta content="" name="description" />
     <meta content="webthemez" name="author" />
-    <title>Tezpur University Society : Admin</title>
+    <title>Tezpur University Society : Employee</title>
     <!-- Bootstrap Styles-->
     <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet" />
     <!-- FontAwesome Styles-->

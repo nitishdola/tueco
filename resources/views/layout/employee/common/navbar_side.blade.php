@@ -7,7 +7,7 @@
         <li class="{{  $sublevel =="21" ? 'active' : '' }}"><a href="#" ><i class="fa fa-plus-circle"></i>Masters<span class="fa arrow"></span></a>
             <ul class="nav nav-third-level">
                 <li>
-                    <a href="chart.html" class="{{  $menu =="211" ? 'active-menu' : '' }}"><i class="fa fa-circle-o"></i>Accounting Heads</a>
+                    <a href="{{ route('employee.accounthead.index') }}" class="{{  $menu =="211" ? 'active-menu' : '' }}"><i class="fa fa-circle-o"></i>Accounting Heads</a>
                 </li>
                 <li>
                     <a href="morris-chart.html" class="{{  $menu =="212" ? 'active-menu' : '' }}"><i class="fa fa-circle-o"></i>Ledgers</a>

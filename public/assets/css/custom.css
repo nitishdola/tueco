@@ -55,8 +55,7 @@
     footer.sticky-footer {
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex;
-        position: absolute;
+        display: flex; 
         right: 0;
         bottom: 0;
         width: calc(100% - 50%);

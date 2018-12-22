@@ -37,7 +37,7 @@ class AccountGroupsController extends Controller
         if($request->q) { 
             $where[] = array('name', 'LIKE', trim($request->q).'%');
         }  
-        $accounts = AccountsHead::where('status','1')->where($where)->orderBy('name', 'asc')->paginate(20);         
+        $accounts = AccountsHead::where('status','1')->where($where)->orderBy('group_code', 'asc')->paginate(20);         
          
         return view('accounts.master.accountshead.view', compact('accounts','request'))->with($link); 
     
@@ -132,4 +132,7 @@ class AccountGroupsController extends Controller
     {
         //
     }
+
+    
+
 }

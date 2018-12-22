@@ -29,11 +29,11 @@
                     <tr role="row">
                     <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="ascending" style="width: 70px;"> Sl.No. </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" width="100px" >
-                    Code</th>   
-                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  >
-                    Groups</th>   
+                    Code</th>                        
                     <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  >
                     Accounts Head</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  >
+                        Groups</th>
                      <th width="120px">Status</th>                               
                     <th  width="180px"></th>
                     </tr>
@@ -49,18 +49,18 @@
                     {{$accounts->group_code}}
                     </td>
                     <td class="gradeA odd">
-                    {{$accounts->head_groups->name}}
+                    {{$accounts->name}}
                     </td> 
                     <td class="gradeA odd">
-                    {{$accounts->name}}
+                    {{$accounts->head_groups->name}}
                     </td>  
                     <td  align="center">
-                            <div class="btn-group float-left">
-                                <button class="btn btn-success btn-sm">Active</button>
-                                <button data-toggle="dropdown" class="btn  btn-success btn-sm dropdown-toggle" aria-expanded="true"><span class="caret"></span></button>
+                            <div  class="btn-group float-left">
+                                <button id="stgroup_{{$accounts->id}}" class="btn  {{  $accounts->active =="1" ? 'btn-success' : 'btn-danger' }}  btn-sm">Active</button>
+                                <button  id="stbtn_{{$accounts->id}}"  data-toggle="dropdown" class="btn  {{  $accounts->active =="1" ? 'btn-success' : 'btn-danger' }} btn-sm dropdown-toggle" aria-expanded="true"><span class="caret"></span></button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Active</a></li>
-                                    <li><a href="#">De-Active</a></li> 
+                                    <li><a onclick="return statusbtn({{$accounts->id}},1)"   style="cursor:pointer;">Active</a></li>
+                                    <li><a  onclick="return statusbtn({{$accounts->id}},0)"  style="cursor:pointer;">De-Active</a></li> 
                                 </ul>
                             </div>
                             </td>                 
@@ -82,6 +82,42 @@
         </div> 
     </div>
 </div>
+
+<script>
+function statusbtn(id, st){ 
+    $('#stgroup_'+id).html("Process...");
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    })
+    debugger;
+    $.ajax({ 
+        data: {id : id, st : st}, 
+        url  : "{{route('ajaxdata.statusupdate')}}",
+        type : 'get',
+        dataType: 'json',
+        success: function(data) {
+            if(st==1)
+            {
+                $('#stgroup_'+id).attr('class','btn btn-success btn-sm')
+                $('#stbtn_'+id).attr('class','btn btn-success btn-sm dropdown-toggle')
+                $('#stgroup_'+id).html("Active");
+            }
+            if(st==0)
+            {
+                $('#stgroup_'+id).attr('class','btn btn-danger btn-sm')
+                $('#stbtn_'+id).attr('class','btn btn-danger btn-sm dropdown-toggle')
+                $('#stgroup_'+id).html("De-Active");
+            }
+            console.log('Success:', data); 
+        },   
+        error: function (data) {
+            console.log('Error:', data);
+           }       
+    })
+}
+</script>
 
 @stop
  

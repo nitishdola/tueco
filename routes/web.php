@@ -54,3 +54,7 @@ Route::group(['prefix' => 'customer'], function () {
   Route::get('/password/reset', 'CustomerAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
 });
+
+//ajax route//
+Route::get('ajaxdata/statusupdate', 'AjaxdataController@statusupdate')->name('ajaxdata.statusupdate');
+//end //

@@ -20,7 +20,8 @@ Route::get('/home', function () {
 })->name('home');
 
 
-// Saradar Master========================================================
+
+//  Master========================================================
 Route::group(['prefix'=>'master'], function() {
     Route::group(['prefix'=>'accounthead'], function() {
         Route::get('/', [
@@ -37,6 +38,6 @@ Route::group(['prefix'=>'master'], function() {
             'as' => 'accounthead.store',
             'middleware' => ['employee'],
             'uses' => 'Accounting\Master\AccountGroupsController@store'
-        ]);
+        ]);  
     });
 }); 

@@ -1,31 +1,35 @@
-@extends('layout.employee.default')
-@section('page_title') 
-
-<h1 class="page-header">Accounting Head</h1>
-@stop
-@section('breadcrumb') 
-<ol class="breadcrumb">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Accounting</a></li>
-    <li><a href="#">Masters</a></li>
-    <li class="active">Accounting Head</li>
-</ol> 
-@stop
+@extends('layout.employee.default') 
+ 
 @section('main_content') 
 <div class="row">
     <div class="col-md-12"> 
         <div class="panel panel-default">  
             <div class="panel-body"> 
                <ul class="nav nav-tabs">
-                <li class="active"><a href="#">View</a></li>
-                <li ><a href="#">Add</a></li>
+                <li class="active"><a  href="{{ route('employee.accounthead.index') }}">View</a></li>
+                <li ><a href="{{ route('employee.accounthead.create') }}">Add</a></li>
                </ul> 
                <div class="panel-body"> 
+                {!! Form::open(['method' => 'GET', 'route' => ['employee.accounthead.index']]) !!} 
+                    <div class="row">
+                        <div class="col-md-12  mg-1">
+                            <div class="form-group input-group col-md-3">
+                                <input type="text" placeholder="Search by Head Name"
+                                    name="q" autocomplete="off" class="form-control " value="{{ $request->q }}"    >
+                                <span class="input-group-btn">
+                                <button class="btn btn-info" type="submit" data-toggle="tooltip"   title="Search!"><i class="fa fa-search" style="color:#fff" ></i>
+                                </button></span>
+                            </div>
+                        </div>
+                    </div>
+                {!! Form::close() !!}
                     <?php $i = 1;?>
                     <table class="table table-striped table-bordered table-hover dataTable no-footer">
                     <thead>
                     <tr role="row">
                     <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="ascending" style="width: 70px;"> Sl.No. </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" width="100px" >
+                    Code</th>   
                     <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  >
                     Groups</th>   
                     <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  >
@@ -40,6 +44,9 @@
                     <tr>
                     <td align="center">
                     <?php echo $i;?>
+                    </td>
+                    <td align="center">
+                    {{$accounts->group_code}}
                     </td>
                     <td class="gradeA odd">
                     {{$accounts->head_groups->name}}

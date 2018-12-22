@@ -15,14 +15,28 @@ class AccountGroupsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function breadcumlink()
+    {       
+        $l1="Home";
+        $l2="Accounting";
+        $l3="Masters";
+        $l4="Accounting Head"; 
+        $level = '2'; 
+        $sublevel = '21'; 
+        $menu = '211'; 
+        $link = compact('l1','l2','l3','l4','level', 'sublevel', 'menu');
+        return  $link;
+    }
     public function index(request $request)
-    {
+    {          
+        $link= $this->breadcumlink(); 
         $where = [];
         if($request->q) { 
             $where[] = array('name', 'LIKE', trim($request->q).'%');
         }  
         $accounts = AccountsHead::where('status','1')->where($where)->orderBy('name', 'asc')->paginate(20);         
-        return view('accounts.master.accountshead.view', compact('accounts','request')); 
+         
+        return view('accounts.master.accountshead.view', compact('accounts','request'))->with($link); 
     
     }
 
@@ -32,8 +46,11 @@ class AccountGroupsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {  
+        $link= $this->breadcumlink();  
+        $groups   = Helper::allGroupsHead($list = true); 
+        return view('accounts.master.accountshead.create', compact('groups'))->with($link);  
+   
     }
 
     /**

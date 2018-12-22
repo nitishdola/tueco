@@ -48,9 +48,20 @@ Author: Nitish Dolakasharia
         <!-- /. NAV SIDE  -->
       
 		<div id="page-wrapper">
-            <div class="header"> 
-                @yield('page_title')
-            	@yield('breadcrumb') 					
+            <div class="header">  
+                <h1 class="page-header">{{ $l4 }}</h1>
+            	<ol class="breadcrumb">
+                    <li><a href="#">{{ $l1 }}</a></li>
+                   @if($l2 !="")
+                    <li><a href="#">{{ $l2 }}</a></li>
+                    @endif
+                    @if($l3 !="")
+                    <li><a href="#">{{ $l3 }}</a></li>
+                    @endif
+                    @if($l4 !="")
+                    <li class="active">{{ $l4 }}</li>
+                    @endif
+                </ol> 	 				
             </div>
             <div id="page-inner">
 

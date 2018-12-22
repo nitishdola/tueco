@@ -63,19 +63,23 @@ class AccountGroupsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {         
+    {       
         $alert    =   '';
         $type    =   '';
         $message    = '';
         $data       = $request->all();    
-        $data['created_by'] = 1 ; 
-        $validator = Validator::make($data, AccountsHead::$rules, AccountsHead::$messages); 
-        if ($validator->fails()) return Redirect::back()->withErrors($validator)->withInput(); 
+        $data['created_by'] = 1 ;         
+        $validator = Validator::make($data, AccountsHead::$rules, AccountsHead::$messages);   
+        if ($validator->fails()) 
+        {
+            return Redirect::back()->withErrors($validator)->withInput(); 
+        }
         if(AccountsHead::create($data)) { 
             $type    .= 'Success!';
             $message    .= 'Accounting Head has been added successfully !'; 
             $alert    =   'alert-success';
-        }else{ 
+        }
+        else{ 
             $type    .= 'Failed!';
             $message    .= 'Unable to store Accounting Head!'; 
             $alert    =   'alert-danger';

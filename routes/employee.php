@@ -35,7 +35,7 @@ Route::group(['prefix'=>'master'], function() {
         ]);       
         Route::post('/store', [
             'as' => 'accounthead.store',
-            'middleware' => ['admin'],
+            'middleware' => ['employee'],
             'uses' => 'Accounting\Master\AccountGroupsController@store'
         ]);
     });

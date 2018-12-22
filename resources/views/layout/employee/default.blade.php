@@ -29,17 +29,17 @@ Author: Nitish Dolakasharia
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
-            @include('layout.admin.common.header_nav')
+            @include('layout.employee.common.header_nav')
 
             <ul class="nav navbar-top-links navbar-right">
-                @include('layout.admin.common.navbar_right')
+                @include('layout.employee.common.navbar_right')
             </ul>
         </nav>
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side flexcroll" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                    @include('layout.admin.common.navbar_side')
+                    @include('layout.employee.common.navbar_side')
                 </ul>
 
             </div>

@@ -12,22 +12,27 @@ class Ledger extends Model
     protected $fillable 	= array('name','ledger_code','group_id','cash_ledger','register','created_by','narration'); 
     protected $guarded   	= ['_token'];
     public static $rules 	= [ 
-        'name' 				=> 'required|max:127|unique:accounts_groups', 
-        'group_id' 	        => 'required|exists:head_groups,id', 
-        'ledger_code' 		=> 'required|numeric|unique:accounts_groups', 
+        'name' 				=> 'required|max:127|unique:ledgers,name,0,status', 
+        'group_id' 	        => 'required|exists:accounts_groups,id', 
+        'ledger_code' 		=> 'required|numeric|unique:ledgers,ledger_code,0,status', 
+         
     ];
     public static $messages = array(        
-        'name.required' => 'The Account Head is required!',
-        'name.unique' => 'The Account Head is already be taken!',
-        'name.max' => 'The Account Head must be less than 128 character!',
+        'name.required' => 'The Ledger name is required!',
+        'name.unique' => 'The Ledger name is already be taken!',
+        'name.max' => 'The Ledger name must be less than 128 character!',
 
-        'group_code.required' => 'The Account Code is required!',
-        'group_code.unique' => 'The Account Code is already be taken!', 
-        'group_code.numeric' => 'Only number allowed!',
+        'ledger_code.required' => 'The Ledger Code is required!',
+        'ledger_code.unique' => 'The Ledger Code is already be taken!', 
+        'ledger_code.numeric' => 'Only number allowed!',
 
-        'head_id.required' => 'Group Under is required!', 
+        'group_id.required' => 'Head Under is required!', 
     );
     public function accounts_groups(){
         return $this->belongsTo('App\Models\Accounting\AccountsHead','group_id');
     } 
+    public function voucher_transactions()
+    {
+        return $this->hasMany('App\Models\Accounting\VoucherTransaction'); 
+	}
 }

@@ -21,9 +21,12 @@ Author: Nitish Dolakasharia
     <!-- Custom Styles-->
     <link href="{{ asset('assets/css/custom-styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" />
+    
+    <link href="{{ asset('assets/css/checkbox3.min.css') }}" rel="stylesheet">
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{ asset('assets/js/Lightweight-Chart/cssCharts.css') }}"> 
+    
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 
@@ -112,6 +115,7 @@ Author: Nitish Dolakasharia
     <!-- Chart Js -->
     <script type="text/javascript" src="{{ asset('assets/js/Chart.min.js') }}"></script>  
     <script type="text/javascript" src="{{ asset('assets/js/chartjs.js') }}"></script> 
+    
 
 </body>
 

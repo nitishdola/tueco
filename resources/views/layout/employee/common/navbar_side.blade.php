@@ -10,7 +10,7 @@
                     <a href="{{ route('employee.accounthead.index') }}" class="{{  $menu =="211" ? 'active-menu' : '' }}"><i class="fa fa-circle-o"></i>Accounting Heads</a>
                 </li>
                 <li>
-                    <a href="morris-chart.html" class="{{  $menu =="212" ? 'active-menu' : '' }}"><i class="fa fa-circle-o"></i>Ledgers</a>
+                    <a href="{{ route('employee.ledger.index') }}" class="{{  $menu =="212" ? 'active-menu' : '' }}"><i class="fa fa-circle-o"></i>Ledgers</a>
                 </li>
                 <li>
                     <a href="morris-chart.html" class="{{  $menu =="213" ? 'active-menu' : '' }}"><i class="fa fa-circle-o"></i>Members</a>

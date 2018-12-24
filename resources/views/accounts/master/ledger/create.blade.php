@@ -6,24 +6,24 @@
         <div class="panel ">  
             <div class="panel-body"> 
                <ul class="nav nav-tabs">
-                    <li><a  href="{{ route('employee.accounthead.index') }}">View</a></li>
-               <li class="active"><a href="#">Edit</a></li>
+                    <li><a  href="{{ route('employee.ledger.index') }}">View</a></li>
+                    <li class="active"><a href="{{ route('employee.ledger.create') }}">Add</a></li>
                </ul> 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel-body">   
                             <span class="text-red pull-right"><b>*</b> fields are mandatory</span>
-                            {!! Form::model($accounts, array('route' => ['employee.accounthead.update', Crypt::encrypt($accounts->id)], 'id' => 'employee.accounthead.update', 'class'=>'form-horizontal')) !!}
-                                 <div class="row" >      
+                            {!! Form::open(array('route' => 'employee.ledger.store', 'id' => 'employee.ledger.store', 'class'=>'form-horizontal')) !!}
+                                <div class="row" >      
                                     <div class="col-md-12">      
-                                        @include('accounts.master.accountshead._create')
+                                        @include('accounts.master.ledger._create')
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top:12px;">
                                 <div class="col-md-2"> </div>
                                     <div class="col-md-10"> 
-                                        <a class="btn btn-primary"  onclick="return validateForm()">Update</a>
-                                        <a  href="{{ route('employee.accounthead.index') }}"  class="btn btn-danger" >Back</a>
+                                        <a id="btnsubmit" class="btn btn-primary"  onclick="return validateForm()">Submit</a>
+                                        <a  href="{{ route('employee.ledger.create') }}"  class="btn btn-danger" >Reset</a>
                                         @include('confirm')
                                     </div>
                                 </div>

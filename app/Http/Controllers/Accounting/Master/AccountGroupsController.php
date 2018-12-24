@@ -145,16 +145,17 @@ class AccountGroupsController extends Controller
         return Redirect::route('employee.accounthead.index')->with(compact('type','message', 'alert'));    
       
     }
- 
+     
     public function destroy($id)
     {  
         DB::beginTransaction();  
         $alert    =   '';
         $type    =   '';
         $message    = '';
-        $ledgers = Ledger::where('status','1')->where('group_id',$id);
-        if(!empty($ledgers))
-        {  
+        $ledgers = Ledger::where('status','1')->where('group_id',$id)->get();
+        $ledgers = count($ledgers);
+        if((int)$ledgers < 1)
+        {   
             $accounts = AccountsHead::find($id);
             $name = $accounts->name;
             $code=  $accounts->group_code;

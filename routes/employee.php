@@ -55,4 +55,38 @@ Route::group(['prefix'=>'master'], function() {
             'uses' => 'Accounting\Master\AccountGroupsController@update'
         ]);
     });
+
+
+    Route::group(['prefix'=>'ledger'], function() {
+        Route::get('/', [
+            'as' => 'ledger.index',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\LedgerController@index'
+        ]);    
+        Route::get('/create', [
+            'as' => 'ledger.create',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\LedgerController@create'
+        ]);       
+        Route::post('/store', [
+            'as' => 'ledger.store',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\LedgerController@store'
+        ]); 
+        Route::post('/destroy/{id}', [
+            'as' => 'ledger.destroy',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\LedgerController@destroy'
+        ]);
+        Route::get('/edit/{id}', [
+            'as' => 'ledger.edit',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\LedgerController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as' => 'ledger.update',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\LedgerController@update'
+        ]);
+    });
 }); 

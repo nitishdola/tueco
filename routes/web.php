@@ -57,4 +57,5 @@ Route::group(['prefix' => 'customer'], function () {
 
 //ajax route//
 Route::get('ajaxdata/statusupdate', 'AjaxdataController@statusupdate')->name('ajaxdata.statusupdate');
+Route::get('ajaxdata/ledgerstatus', 'AjaxdataController@ledgerstatus')->name('ajaxdata.ledgerstatus');
 //end //

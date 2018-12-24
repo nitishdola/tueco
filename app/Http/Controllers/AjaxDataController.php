@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Accounting\HeadGroup;
 use App\Models\Accounting\AccountsHead; 
+use App\Models\Accounting\Ledger; 
 use App\Models\Logs;  
 use Illuminate\Support\Facades\Auth;
 use App\Employee;  
@@ -42,6 +43,32 @@ class AjaxDataController extends Controller
         DB::commit();        
         return response()->json([
             'success' => 'Account Head '.$name. ' has been '.$act.' successfully!'
+        ]);
+    }
+    public function ledgerstatus(Request $request)
+    {  
+        
+        DB::beginTransaction();  
+        $st = $request->st;        
+        $id = $request->id;
+        $user_id = $request->uid;
+        $act="";
+        $ledger = Ledger::findOrFail($id);   
+        $name = $ledger->name;    
+        if($st==1) {
+            $ledger->active ="1"; 
+            $act='Active' ;
+        }
+        if($st==0) {
+            $ledger->active ="0";  
+            $act='De-Active' ;
+        }
+        $ledger->save();
+        $rmk = 'Ledger Name: '.$name. ' has been '.$act.' successfully.';
+        $this->logs($rmk,$user_id);
+        DB::commit();        
+        return response()->json([
+            'success' => 'Ledger Name '.$name. ' has been '.$act.' successfully!'
         ]);
     }
 }

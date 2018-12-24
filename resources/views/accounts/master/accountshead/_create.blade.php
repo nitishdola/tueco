@@ -21,6 +21,7 @@
     <div class="col-sm-6">
     {!! Form::select('head_id', $groups, null, ['class' => 'form-control required', 'id' => 'head_id', 'placeholder' => '--Select--', ]) !!}
     </div>  
+    {!! $errors->first('head_id', '<span class="help-inline">:message</span>') !!}
 </div>
 
 <div class="form-group">

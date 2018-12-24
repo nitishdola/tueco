@@ -8,6 +8,7 @@
 </div>
 <div class="form-group {{ $errors->has('ledger_code') ? 'has-error' : ''}}">
     {!! Form::label('Ledger Code:', '', array('class' => 'col-sm-3 control-label')) !!}
+    
     <b style='color:red;'>*</b>
         <div class="col-sm-5">
       {!! Form::text('ledger_code',    null  , ['class' => 'form-control required', 'id' => 'ledger_code', 'placeholder' => 'Ledger Code', 'required' => 'true', ]) !!}
@@ -25,8 +26,7 @@
 </div>
 
 <div class="form-group {{ $errors->has('cash_ledger') ? 'has-error' : ''}}">
-    {!! Form::label('Is a Cash or Bank Ledger?:', '', array('class' => 'col-sm-3 control-label form-control-plaintext ')) !!}
- 
+     <label class ='col-sm-3  control-label'>Is a Cash or Bank Ledger?</label>
     <div class="col-sm-2"> 
     {!! Form::select('cash_ledger', array('0' => 'No', '1' => 'Yes'), null, ['class' => 'form-control required', 'id' => 'cash_ledger' ]) !!}
    </div>
@@ -34,8 +34,8 @@
  
 
 <div class="form-group {{ $errors->has('register') ? 'has-error' : ''}}">
-    {!! Form::label('Is ledger link with Register?', '', array('class' => 'col-sm-3 control-label ')) !!}
-    <div class="col-sm-2">
+    <label class ='col-sm-3  control-label'>Is ledger link with Register?</label>
+     <div class="col-sm-2">
     {!! Form::select('register', $register, null, ['class' => 'form-control required', 'id' => 'register', 'placeholder' => 'No', ]) !!}
   </div>
 </div>

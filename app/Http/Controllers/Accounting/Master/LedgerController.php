@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;  
 use App\Models\Accounting\AccountsHead;  
 use App\Models\Accounting\Ledger;  
+use App\Models\Accounting\VoucherTransaction;  
 use App\Models\Logs;  
 use Illuminate\Support\Facades\Auth;
 use App\Employee;  
@@ -172,7 +173,7 @@ class LedgerController extends Controller
         $type    =   '';
         $message    = '';
         $voucherTrans = VoucherTransaction::where('status','1')->where('ledger_id',$id)->get();
-        $voucherTrans = count($ledgers);
+        $voucherTrans = count($voucherTrans);
         if((int)$voucherTrans < 1) 
         {  
             $ledger = Ledger::find($id);

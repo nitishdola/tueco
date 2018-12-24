@@ -20,8 +20,7 @@ class AjaxDataController extends Controller
         Logs::create($data);
     }
     public function statusupdate(Request $request)
-    {  
-        
+    {          
         DB::beginTransaction();  
         $st = $request->st;        
         $id = $request->id;
@@ -46,8 +45,7 @@ class AjaxDataController extends Controller
         ]);
     }
     public function ledgerstatus(Request $request)
-    {  
-        
+    {          
         DB::beginTransaction();  
         $st = $request->st;        
         $id = $request->id;

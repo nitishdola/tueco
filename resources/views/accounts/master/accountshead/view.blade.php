@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-12  mg-1">
                             <div class="form-group input-group col-md-3">
-                                <input type="text" placeholder="Search by Head Name"
+                                <input type="text" placeholder="Search by Accounting Head"
                                     name="q" autocomplete="off" class="form-control " value="{{ $request->q }}"    >
                                 <span class="input-group-btn">
                                 <button class="btn btn-info" type="submit" data-toggle="tooltip"   title="Search!"><i class="fa fa-search" style="color:#fff" ></i>
@@ -27,12 +27,12 @@
                     <table class="table table-striped table-bordered table-hover dataTable no-footer">
                     <thead>
                     <tr role="row">
-                    <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="ascending" style="width: 70px;"> Sl.No. </th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" width="100px" >
-                    Code</th>                        
-                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  >
-                    Accounts Head</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  >
+                    <th  style="width: 70px;"> Sl.No. </th>
+                    <th  width="100px" >
+                    Head Code</th>                        
+                    <th>
+                    Accounting Head</th>
+                    <th>
                         Groups</th>
                      <th width="120px">Status</th>                               
                     <th  width="180px"></th>
@@ -51,12 +51,12 @@
                     <td class="gradeA odd">
                     {{$accounts->name}}
                     </td> 
-                    <td class="gradeA odd">
-                    {{$accounts->head_groups->name}}
+                    <td  class="gradeA odd">                       
+                        {{$accounts->head_groups->name}}                     
                     </td>  
                     <td  align="center">
                             <div  class="btn-group float-left">
-                                <button id="stgroup_{{$accounts->id}}" class="btn  {{  $accounts->active =="1" ? 'btn-success' : 'btn-danger' }}  btn-sm">Active</button>
+                                <button id="stgroup_{{$accounts->id}}" data-toggle="dropdown"  class="btn  {{  $accounts->active =="1" ? 'btn-success' : 'btn-danger' }}  btn-sm">{{  $accounts->active =="1" ? 'Active' : 'De-Active' }}</button>
                                 <button  id="stbtn_{{$accounts->id}}"  data-toggle="dropdown" class="btn  {{  $accounts->active =="1" ? 'btn-success' : 'btn-danger' }} btn-sm dropdown-toggle" aria-expanded="true"><span class="caret"></span></button>
                                 <ul class="dropdown-menu">
                                     <li><a onclick="return statusbtn({{$accounts->id}},1)"   style="cursor:pointer;">Active</a></li>
@@ -65,27 +65,33 @@
                             </div>
                             </td>                 
                     <td align="center">   
-                        <a href="#" data-toggle="tooltip" class="btn btn-primary btn-sm" title="Edit">Edit</a>
-                        <button  data-toggle="tooltip" class=" btn btn-danger btn-sm"  title="Delete!">Delete</button>
+                         {!! Form::open([ 'method' => 'POST', 'route' => ['employee.accounthead.destroy', $accounts->id],  'onsubmit' => 'return confirmDelete()' ]) !!}
+                          <a href="{{route('employee.accounthead.edit', ['id'=>Crypt::encrypt($accounts->id)]) }}" data-toggle="tooltip" class="btn btn-primary btn-sm" title="Edit">Edit</a>
+                         <button  data-toggle="tooltip" class=" btn btn-danger btn-sm"  title="Delete!">Delete</button>
+                        {!! Form::close() !!}
+             
                     </td>
+                    
                     <?php   $i++;?>
                     </tr>
-
+                 
                     @endforeach
                     @endif
                     </tbody>
                     </table>
                 
-                 
+                <span id="userid" style="display:none;">{{ $user_id }}</span>
                 </div>
             </div>
         </div> 
     </div>
 </div>
-
+          
 <script>
+
 function statusbtn(id, st){ 
     $('#stgroup_'+id).html("Process...");
+    uid=$('#userid').html();
     $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -93,7 +99,7 @@ function statusbtn(id, st){
     })
     debugger;
     $.ajax({ 
-        data: {id : id, st : st}, 
+        data: {id : id, st : st, uid:uid}, 
         url  : "{{route('ajaxdata.statusupdate')}}",
         type : 'get',
         dataType: 'json',
@@ -116,6 +122,20 @@ function statusbtn(id, st){
             console.log('Error:', data);
            }       
     })
+}
+function confirmDelete() {    
+    if (confirm("Are you sure to Delete the Record!!")) {
+        return true;
+    }
+    else {
+        return false;
+    } 
+  }
+function deleteconfirm(){
+    $('#msgtext').html('Are you sure, you want to delete the record?'); 
+    $('#btntext').html('Delete'); 
+    $('#btnconfirm').attr('class','btn btn-danger');     
+    $('#myModalConfirm').modal('show'); 
 }
 </script>
 

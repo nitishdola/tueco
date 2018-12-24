@@ -38,6 +38,21 @@ Route::group(['prefix'=>'master'], function() {
             'as' => 'accounthead.store',
             'middleware' => ['employee'],
             'uses' => 'Accounting\Master\AccountGroupsController@store'
-        ]);  
+        ]); 
+        Route::post('/destroy/{id}', [
+            'as' => 'accounthead.destroy',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\AccountGroupsController@destroy'
+        ]);
+        Route::get('/edit/{id}', [
+            'as' => 'accounthead.edit',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\AccountGroupsController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as' => 'accounthead.update',
+            'middleware' => ['employee'],
+            'uses' => 'Accounting\Master\AccountGroupsController@update'
+        ]);
     });
 }); 

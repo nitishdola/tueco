@@ -22,7 +22,7 @@
                                 <div class="row" style="margin-top:12px;">
                                 <div class="col-md-2"> </div>
                                     <div class="col-md-10"> 
-                                        <a class="btn btn-primary"  onclick="return validateForm()">Submit</a>
+                                        <a id="btnsubmit" class="btn btn-primary"  onclick="return validateForm()">Submit</a>
                                         <a  href="{{ route('employee.accounthead.create') }}"  class="btn btn-danger" >Reset</a>
                                         @include('confirm')
                                     </div>

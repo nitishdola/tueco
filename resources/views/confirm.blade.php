@@ -6,10 +6,11 @@
                 <h4 class="modal-title" id="myModalLabel">Confirm</h4>
             </div>
             <div class="modal-body">
-                Are you sure you want to submit?
+                <span id="msgtext"></span>
             </div>
             <div class="modal-footer"> 
-                <button type="submit" class="btn btn-primary ">Submit</button>
+                <button type="submit" id="btnconfirm">
+                        <span id="btntext"></span></button>
             </div>
         </div>
     </div>

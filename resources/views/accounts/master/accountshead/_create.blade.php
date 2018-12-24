@@ -1,18 +1,16 @@
-
-
-<div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
-    {!! Form::label('Account Head:', '', array('class' => 'col-sm-2 control-label')) !!}
+ <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+    {!! Form::label('Accounting Head:', '', array('class' => 'col-sm-2 control-label')) !!}
     <b style='color:red;'>*</b>
     <div class="col-sm-6">
-      {!! Form::text('name',    null  , ['class' => 'form-control required ', 'id' => 'name', 'placeholder' => 'Accounts Head', 'required' => 'true', ]) !!}
+      {!! Form::text('name',    null  , ['class' => 'form-control required ', 'id' => 'name', 'placeholder' => 'Accounting Head', 'required' => 'true', ]) !!}
     </div>
     {!! $errors->first('name', '<span class="help-inline">:message</span>') !!}
 </div>
 <div class="form-group {{ $errors->has('group_code') ? 'has-error' : ''}}">
-    {!! Form::label('Account Code:', '', array('class' => 'col-sm-2 control-label')) !!}
+    {!! Form::label('Head Code:', '', array('class' => 'col-sm-2 control-label')) !!}
     <b style='color:red;'>*</b>
         <div class="col-sm-6">
-      {!! Form::text('group_code',    null  , ['class' => 'form-control required', 'id' => 'group_code', 'placeholder' => 'Account Code', 'required' => 'true', ]) !!}
+      {!! Form::text('group_code',    null  , ['class' => 'form-control required', 'id' => 'group_code', 'placeholder' => 'Head Code', 'required' => 'true', ]) !!}
       </div>
     {!! $errors->first('group_code', '<span class="help-inline">:message</span>') !!}
 </div>
@@ -38,12 +36,12 @@
             var textbox3 = document.getElementById('head_id').value;;
             if(textbox1==''){ 
                 $("#name").focus(); 
-                alert('Account Head is empty!');
+                alert('Accounting Head is empty!');
                 return false;
             }
             if(textbox2==''){ 
                 $("#group_code").focus(); 
-                alert('Account Code is empty!');
+                alert('Head Code is empty!');
                 return false;
             }
             if(textbox3==''){ 
@@ -51,7 +49,18 @@
                 alert('Select Group Under!');
                 return false;
             } 
-                $('#myModalConfirm').modal('show'); 
+            if($('#btnsubmit').html()=="Submit")
+            {
+                $('#msgtext').html('Are you sure, you want to submit the record?'); 
+                $('#btntext').html('Submit'); 
+            }
+            else
+            {
+                $('#msgtext').html('Are you sure, you want to update the record?'); 
+                $('#btntext').html('Update'); 
+            }
+            $('#btnconfirm').attr('class','btn btn-primary'); 
+            $('#myModalConfirm').modal('show'); 
         }
         </script>
  
